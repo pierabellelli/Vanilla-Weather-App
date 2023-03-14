@@ -54,10 +54,9 @@ function displayTemperature(response) {
 }
 
 let apiKey = "tf432db404oa6c294f5f02645370860b";
-let place = "London";
+let place = "Capaccio";
 
-let apiUrl =
-  "https://api.shecodes.io/weather/v1/current?query=Cagliari&key=tf432db404oa6c294f5f02645370860b&units=metric";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${place}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayCity);
 axios.get(apiUrl).then(displayDate);
