@@ -53,11 +53,22 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.condition.description);
 }
 
-let apiKey = "tf432db404oa6c294f5f02645370860b";
-let place = "Capaccio";
+function search(city) {
+  let apiKey = "tf432db404oa6c294f5f02645370860b";
+  let place = "Capaccio";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${place}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayCity);
+  axios.get(apiUrl).then(displayDate);
+}
 
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${place}&key=${apiKey}&units=metric`;
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
-axios.get(apiUrl).then(displayCity);
-axios.get(apiUrl).then(displayDate);
-axios.get(apiUrl).then(displayTemperature);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("New York");
