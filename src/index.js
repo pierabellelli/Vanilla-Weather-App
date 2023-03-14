@@ -44,12 +44,21 @@ function displayTemperature(response) {
 
   let conditionElement = document.querySelector("#condition");
   conditionElement.innerHTML = response.data.condition.description;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
+
 let apiKey = "tf432db404oa6c294f5f02645370860b";
 let place = "London";
+
 let apiUrl =
-  "https://api.shecodes.io/weather/v1/current?query=London&key=tf432db404oa6c294f5f02645370860b&units=metric";
-console.log(apiUrl);
+  "https://api.shecodes.io/weather/v1/current?query=Cagliari&key=tf432db404oa6c294f5f02645370860b&units=metric";
+
 axios.get(apiUrl).then(displayCity);
 axios.get(apiUrl).then(displayDate);
 axios.get(apiUrl).then(displayTemperature);

@@ -57,7 +57,7 @@ function displayCondition(response) {
 let apiKey = "tf432db404oa6c294f5f02645370860b";
 let place = "Capaccio";
 let apiUrl =
-  "https://api.shecodes.io/weather/v1/current?query={Capaccio}&key=tf432db404oa6c294f5f02645370860b&units=metric";
+  "https://api.shecodes.io/weather/v1/current?query={city}&key=tf432db404oa6c294f5f02645370860b&units=metric";
 console.log(apiUrl);
 axios.get(apiUrl).then(displayCity);
 axios.get(apiUrl).then(displayDate);
