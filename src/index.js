@@ -55,7 +55,7 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = "tf432db404oa6c294f5f02645370860b";
-  let place = "Capaccio";
+  let place = document.querySelector("#city-input").value;
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${place}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemperature);
   axios.get(apiUrl).then(displayCity);
@@ -70,5 +70,3 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-search("New York");
