@@ -19,10 +19,10 @@
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
-            <h1>Capaccio</h1>
+            <h1 id="city">Capaccio</h1>
             <ul>
               <li>Tuesday 10:30</li>
-              <li>Clear</li>
+              <li id="condition">Clear</li>
             </ul>
             <div class="row">
               <div class="col-6">
@@ -41,9 +41,9 @@
               </div>
               <div class="col-6">
                 <ul>
-                  <li>☔ Precipitation 0%</li>
-                  <li>💧 Umidity: 52%</li>
-                  <li>🌬️ Wind: 2 km/h</li>
+                  <li>☔ Pressure: <span id="pressure"> </span></li>
+                  <li>💧Humidity: <span id="humidity"></span> %</li>
+                  <li>🌬️ Wind: <span id="wind"></span> km/h</li>
                 </ul>
               </div>
             </div>
