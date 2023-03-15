@@ -44,6 +44,7 @@ function displayTemperature(response) {
 
   let conditionElement = document.querySelector("#condition");
   conditionElement.innerHTML = response.data.condition.description;
+  celsiusTemp = response.data.temperature.current;
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
@@ -68,5 +69,25 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let FahrenheitTemperature = (celsiusTemp * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(FahrenheitTemperature);
+}
+
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = MathRound(celsiusTemp);
+}
+let celsiusTemp = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.innerHTML.addEventListener("click", displayCelsiusTemp);
