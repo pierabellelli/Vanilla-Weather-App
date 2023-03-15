@@ -63,14 +63,10 @@ function search(city) {
   axios.get(apiUrl).then(displayDate);
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  let cityInputElement = document.querySelector("#city-input");
-  search(cityInputElement.value);
-}
-
 function displayFahrenheitTemp(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
   let FahrenheitTemperature = (celsiusTemp * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(FahrenheitTemperature);
@@ -78,16 +74,24 @@ function displayFahrenheitTemp(event) {
 
 function displayCelsiusTemp(event) {
   event.preventDefault();
-
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = MathRound(celsiusTemp);
+  temperatureElement.innerHTML = Math.Round(celsiusTemp);
 }
 let celsiusTemp = null;
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
+
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.innerHTML.addEventListener("click", displayCelsiusTemp);
+celsiusLink.addEventListener("click", displayCelsiusTemp);
