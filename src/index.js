@@ -25,7 +25,7 @@ function formatDate(timestamp) {
 
   return `${day}, ${hours}:${minutes}`;
 }
-
+/*
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row"> `;
@@ -52,6 +52,7 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
+*/
 function displayDate(response) {
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
@@ -123,4 +124,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
-displayForecast();
+//displayForecast();
